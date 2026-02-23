@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mt. Pulag Akiki Trail — Hour-by-Hour Trek Itinerary</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0a0e14;
+            --bg-card: #111820;
+            --bg-card-alt: #151d28;
+            --bg-elevated: #1a2332;
+            --bg-hover: #1e2a3a;
+            --border: #1e2d3d;
+            --border-subtle: #162030;
+            --text-primary: #e8edf3;
+            --text-secondary: #8b9bb4;
+            --text-muted: #5a6f8a;
+            --text-dim: #3d5068;
+            --accent-gold: #d4a44c;
+            --accent-gold-dim: rgba(212, 164, 76, 0.12);
+            --accent-amber: #e8a838;
+            --accent-emerald: #3bb97a;
+            --accent-emerald-dim: rgba(59, 185, 122, 0.1);
+            --accent-sky: #4ba8d4;
+            --accent-sky-dim: rgba(75, 168, 212, 0.1);
+            --accent-violet: #9b7ad8;
+            --accent-violet-dim: rgba(155, 122, 216, 0.1);
+            --accent-rose: #d4637a;
+            --accent-rose-dim: rgba(212, 99, 122, 0.1);
+            --accent-orange: #d48a4c;
+            --accent-orange-dim: rgba(212, 138, 76, 0.1);
+            --accent-teal: #4cb8a8;
+            --accent-teal-dim: rgba(76, 184, 168, 0.1);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === LAYOUT === */
+        .page-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem 4rem;
+        }
+
+        /* === HERO === */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 1rem 2.5rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .hero-icon {
+            font-size: 2.8rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero h1 span {
+            color: var(--accent-gold);
+        }
+
+        .hero-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-meta-item strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* === SECTION HEADERS === */
+        .day-header {
+            margin: 3rem 0 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .day-header.day-1::before {
+            background: var(--accent-emerald);
+        }
+
+        .day-header.day-2::before {
+            background: var(--accent-gold);
+        }
+
+        .day-header.day-3::before {
+            background: var(--accent-sky);
+        }
+
+        .day-header .day-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-bottom: 0.35rem;
+        }
+
+        .day-1 .day-label {
+            color: var(--accent-emerald);
+        }
+
+        .day-2 .day-label {
+            color: var(--accent-gold);
+        }
+
+        .day-3 .day-label {
+            color: var(--accent-sky);
+        }
+
+        .day-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .day-header .day-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        /* === SUB HEADERS === */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 2.25rem 0 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .subsection-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 1.75rem 0 0.6rem;
+        }
+
+        /* === SEGMENT HEADER === */
+        .segment-header {
+            margin: 2rem 0 1rem;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .segment-num {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .segment-header .seg-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.25;
+        }
+
+        .segment-header .seg-stats {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+            line-height: 1.5;
+        }
+
+        /* === TABLES === */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1rem 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.84rem;
+        }
+
+        thead th {
+            background: var(--bg-elevated);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        tbody td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: top;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: var(--bg-hover);
+        }
+
+        tbody td:first-child {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            white-space: nowrap;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        tbody td strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Highlight rows */
+        tr.row-highlight td {
+            background: var(--accent-gold-dim);
+        }
+
+        tr.row-highlight td:first-child {
+            color: var(--accent-gold);
+        }
+
+        tr.row-start td {
+            background: var(--accent-emerald-dim);
+        }
+
+        tr.row-start td:first-child {
+            color: var(--accent-emerald);
+        }
+
+        tr.row-arrive td {
+            background: var(--accent-sky-dim);
+        }
+
+        tr.row-camp td {
+            background: var(--accent-violet-dim);
+        }
+
+        tr.row-summit td {
+            background: rgba(212, 164, 76, 0.08);
+        }
+
+        /* === TRAIL OVERVIEW TABLE === */
+        .trail-overview-table tbody td:nth-child(2) {
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 200px;
+        }
+
+        .trail-overview-table .killer-cell {
+            color: var(--accent-rose) !important;
+            font-weight: 700 !important;
+        }
+
+        /* === INFO CARDS (clothing, camera, blockquotes) === */
+        .info-card {
+            margin: 1rem 0;
+            padding: 1.15rem 1.25rem;
+            border-radius: var(--radius-md);
+            border: 1px solid;
+            position: relative;
+        }
+
+        .info-card.clothing {
+            background: var(--accent-sky-dim);
+            border-color: rgba(75, 168, 212, 0.2);
+        }
+
+        .info-card.camera {
+            background: var(--accent-amber-dim, rgba(232, 168, 56, 0.08));
+            border-color: rgba(232, 168, 56, 0.18);
+        }
+
+        .info-card.warning {
+            background: var(--accent-rose-dim);
+            border-color: rgba(212, 99, 122, 0.2);
+        }
+
+        .info-card.note {
+            background: var(--accent-emerald-dim);
+            border-color: rgba(59, 185, 122, 0.18);
+        }
+
+        .info-card .card-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .info-card.clothing .card-label {
+            color: var(--accent-sky);
+        }
+
+        .info-card.camera .card-label {
+            color: var(--accent-amber);
+        }
+
+        .info-card.warning .card-label {
+            color: var(--accent-rose);
+        }
+
+        .info-card.note .card-label {
+            color: var(--accent-emerald);
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 0.84rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .info-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.3rem 0 0.5rem;
+        }
+
+        .info-card ul li {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            padding: 0.2rem 0 0.2rem 1.1rem;
+            position: relative;
+            line-height: 1.55;
+        }
+
+        .info-card ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .info-card.clothing ul li::before {
+            color: var(--accent-sky);
+        }
+
+        .info-card.camera ul li::before {
+            color: var(--accent-amber);
+        }
+
+        .info-card.warning ul li::before {
+            color: var(--accent-rose);
+        }
+
+        .info-card.note ul li::before {
+            color: var(--accent-emerald);
+        }
+
+        .info-card .tip {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .info-card .sub-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 0.6rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* === ELEVATION PROFILE === */
+        .elev-profile {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+        }
+
+        .elev-profile .profile-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+
+        .elev-stops {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+
+        .elev-stop {
+            display: grid;
+            grid-template-columns: 140px 48px 1fr;
+            align-items: center;
+            gap: 0;
+            padding: 0.65rem 0.75rem;
+            border-radius: var(--radius-sm);
+            transition: background 0.15s;
+        }
+
+        .elev-stop:hover {
+            background: var(--bg-hover);
+        }
+
+        .elev-stop .stop-elev {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-align: right;
+            padding-right: 0.75rem;
+        }
+
+        .elev-stop .stop-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .elev-stop .stop-info {
+            padding-left: 0.75rem;
+        }
+
+        .elev-stop .stop-name {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: #fff;
+        }
+
+        .elev-stop .stop-detail {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 1px;
+        }
+
+        .elev-connector {
+            margin-left: 163px;
+            width: 2px;
+            height: 18px;
+            background: var(--border);
+        }
+
+        /* Elevation bar */
+        .elev-bar-bg {
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            margin-top: 5px;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .elev-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        /* === CALLOUT BOX === */
+        .callout {
+            margin: 1.25rem 0;
+            padding: 1rem 1.25rem;
+            border-left: 3px solid;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            background: var(--bg-card);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .callout.gold {
+            border-color: var(--accent-gold);
+        }
+
+        .callout.emerald {
+            border-color: var(--accent-emerald);
+        }
+
+        .callout.sky {
+            border-color: var(--accent-sky);
+        }
+
+        .callout.rose {
+            border-color: var(--accent-rose);
+        }
+
+        .callout strong {
+            color: var(--text-primary);
+        }
+
+        .callout code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            background: var(--bg-elevated);
+            padding: 0.1em 0.35em;
+            border-radius: 3px;
+        }
+
+        /* === SUMMARY TABLE === */
+        .summary-table {
+            margin: 1.5rem 0;
+        }
+
+        .summary-table thead th {
+            text-align: center;
+        }
+
+        .summary-table thead th:first-child,
+        .summary-table thead th:nth-child(2) {
+            text-align: left;
+        }
+
+        .summary-table tbody td {
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+        }
+
+        .summary-table tbody td:first-child,
+        .summary-table tbody td:nth-child(2) {
+            text-align: left;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.84rem;
+        }
+
+        .summary-table tbody tr:last-child td {
+            font-weight: 700;
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+            border-top: 2px solid var(--accent-gold);
+        }
+
+        /* === KEY REMINDERS === */
+        .reminders {
+            margin: 2rem 0;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .reminder-item {
+            padding: 1rem 1.15rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .reminder-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            background: var(--accent-gold-dim);
+        }
+
+        .reminder-item .rem-title {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+        }
+
+        .reminder-item .rem-body {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* === DIVIDER === */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 2rem 0;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* === NAV === */
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 20, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 1rem;
+            margin: 0 -1.25rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-sticky a {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.35rem 0.7rem;
+            border-radius: var(--radius-sm);
+            transition: all 0.15s;
+        }
+
+        .nav-sticky a:hover {
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+        }
+
+        .nav-sticky a.nav-d1 {
+            border-bottom: 2px solid var(--accent-emerald);
+            color: var(--accent-emerald);
+        }
+
+        .nav-sticky a.nav-d2 {
+            border-bottom: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .nav-sticky a.nav-d3 {
+            border-bottom: 2px solid var(--accent-sky);
+            color: var(--accent-sky);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+
+            .segment-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .segment-num {
+                width: 36px;
+                height: 36px;
+                font-size: 0.85rem;
+            }
+
+            .elev-stop {
+                grid-template-columns: 100px 40px 1fr;
+            }
+
+            .elev-connector {
+                margin-left: 118px;
+            }
+
+            table {
+                font-size: 0.78rem;
+            }
+
+            thead th,
+            tbody td {
+                padding: 0.55rem 0.65rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap">
+
+        <!-- HERO -->
+        <div class="hero">
+            <span class="hero-icon">⛰️</span>
+            <h1>Mt. Pulag <span>Akiki Trail</span></h1>
+            <div class="hero-sub">Hour-by-Hour Trek Itinerary</div>
+            <div class="hero-meta">
+                <span class="hero-meta-item"><strong>Dates:</strong> March 4–6, 2026</span>
+                <span class="hero-meta-item"><strong>Trail:</strong> Akiki → Summit → Ambangeg</span>
+                <span class="hero-meta-item"><strong>Difficulty:</strong> 7/9</span>
+                <span class="hero-meta-item"><strong>Duration:</strong> 3 days / 2 nights</span>
+            </div>
+        </div>
+
+        <!-- NAV -->
+        <nav class="nav-sticky">
+            <a href="#overview">Overview</a>
+            <a href="#elevation">Elevation</a>
+            <a href="#day1" class="nav-d1">Day 1</a>
+            <a href="#day2" class="nav-d2">Day 2</a>
+            <a href="#day3" class="nav-d3">Day 3</a>
+            <a href="#summary">Summary</a>
+            <a href="#reminders">Reminders</a>
+        </nav>
+
+        <!-- ======================== TRAIL OVERVIEW ======================== -->
+        <div class="section-title" id="overview">Trail Overview — What You'll Pass Through</div>
+
+        <div class="table-wrap">
+            <table class="trail-overview-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>From → To</th>
+                        <th>Time</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Net</th>
+                        <th>↑ Gain</th>
+                        <th>↓ Loss</th>
+                        <th>Character</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td>Ranger Station → Eddet River</td>
+                        <td>~2–2.5 hrs</td>
+                        <td>1,314m</td>
+                        <td>1,265m</td>
+                        <td>−49m</td>
+                        <td>+178m</td>
+                        <td>−227m</td>
+                        <td>Downhill through pine forest to river valley — deceptively easy start</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td class="killer-cell">Eddet River → Marlboro Country</td>
+                        <td>~3–4 hrs</td>
+                        <td>1,265m</td>
+                        <td>2,170m</td>
+                        <td>+905m</td>
+                        <td>+905m</td>
+                        <td>0m</td>
+                        <td class="killer-cell"><strong>THE KILLER SECTION</strong> — relentless steep pine forest climb
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3</strong></td>
+                        <td>Marlboro Country → Mossy Forest</td>
+                        <td>~1.5–2 hrs</td>
+                        <td>2,170m</td>
+                        <td>2,389m</td>
+                        <td>+219m</td>
+                        <td>+219m</td>
+                        <td>0m</td>
+                        <td>Rolling terrain transitioning into dense mossy forest</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td>Mossy Forest → Grassland</td>
+                        <td>~2–3 hrs</td>
+                        <td>2,389m</td>
+                        <td>2,584m</td>
+                        <td>+195m</td>
+                        <td>+195m</td>
+                        <td>0m</td>
+                        <td>Muddy root-tangled cloud forest, opens to grasslands</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5</strong></td>
+                        <td>Grassland → Saddle Camp</td>
+                        <td>~1 hr</td>
+                        <td>2,584m</td>
+                        <td>2,815m</td>
+                        <td>+231m</td>
+                        <td>+287m</td>
+                        <td>−56m</td>
+                        <td>Beautiful open grassland ridges</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6</strong></td>
+                        <td>Saddle Camp → Summit</td>
+                        <td>~15–30 min</td>
+                        <td>2,815m</td>
+                        <td>2,922m</td>
+                        <td>+107m</td>
+                        <td>+71m</td>
+                        <td>0m</td>
+                        <td>Quick final assault to Luzon's highest point</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7</strong></td>
+                        <td>Summit → Babadak (Ambangeg)</td>
+                        <td>~3.5–4 hrs</td>
+                        <td>2,886m</td>
+                        <td>2,316m</td>
+                        <td>−571m</td>
+                        <td>+101m</td>
+                        <td>−671m</td>
+                        <td>Gradual descent via the easy Ambangeg trail</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout gold">
+            <strong>Total Trek: ↑ 1,956m gain / ↓ 955m loss</strong> (from GPX data) &nbsp;|&nbsp; <strong>17 km
+                total</strong>
+        </div>
+
+        <!-- ======================== ELEVATION PROFILE ======================== -->
+        <div class="elev-profile" id="elevation">
+            <div class="profile-title">Quick Reference: Elevation Profile</div>
+            <div class="elev-stops">
+
+                <div class="elev-stop">
+                    <div class="stop-elev" style="color:var(--accent-gold)">2,922m</div>
+                    <div class="stop-icon" style="background:var(--accent-gold-dim)">★</div>
+                    <div class="stop-info">
+                        <div class="stop-name">Summit</div>
+                        <div class="stop-detail">+71m from Saddle Camp (15–30 min)</div>
+                        <div class="elev-bar-bg">
+                            <div class="elev-bar-fill" style="width:100%;background:var(--accent-gold)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elev-connector"></div>
+
+                <div class="elev-stop">
+                    <div class="stop-elev" style="color:var(--accent-violet)">2,815m</div>
+                    <div class="stop-icon" style="background:var(--accent-violet-dim)">🏕️</div>
+                    <div class="stop-info">
+                        <div class="stop-name">Saddle Camp</div>
+                        <div class="stop-detail">Night 2 · COLDEST: 2–5°C, possible −8°C · Full layers + down + gloves +
+                            bonnet</div>
+                        <div class="elev-bar-bg">
+                            <div class="elev-bar-fill" style="width:93%;background:var(--accent-violet)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elev-connector"></div>
+
+                <div class="elev-stop">
+                    <div class="stop-elev" style="color:var(--accent-emerald)">2,584m</div>
+                    <div class="stop-icon" style="background:var(--accent-emerald-dim)">🌾</div>
+                    <div class="stop-info">
+                        <div class="stop-name">Grassland</div>
+                        <div class="stop-detail">+195m from Mossy Forest (1 hr) · Wind shell on</div>
+                        <div class="elev-bar-bg">
+                            <div class="elev-bar-fill" style="width:80%;background:var(--accent-emerald)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elev-connector"></div>
+
+                <div class="elev-stop">
+                    <div class="stop-elev" style="color:var(--accent-teal)">2,389m</div>
+                    <div class="stop-icon" style="background:var(--accent-teal-dim)">🌿</div>
+                    <div class="stop-info">
+                        <div class="stop-name">Mossy Forest</div>
+                        <div class="stop-detail">+219m from Marlboro (2–3 hrs) · Mid layer + shell</div>
+                        <div class="elev-bar-bg">
+                            <div class="elev-bar-fill" style="width:68%;background:var(--accent-teal)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elev-connector"></div>
+
+                <div class="elev-stop">
+                    <div class="stop-elev" style="color:var(--accent-violet)">2,170m</div>
+                    <div class="stop-icon" style="background:var(--accent-violet-dim)">🏕️</div>
+                    <div class="stop-info">
+                        <div class="stop-name">Marlboro Country</div>
+                        <div class="stop-detail">Night 1 · 5–12°C · Base layer + fleece + jacket for sleep</div>
+                        <div class="elev-bar-bg">
+                            <div class="elev-bar-fill" style="width:55%;background:var(--accent-violet)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elev-connector"></div>
+
+                <div class="elev-stop">
+                    <div class="stop-elev" style="color:var(--accent-rose)">—</div>
+                    <div class="stop-icon" style="background:var(--accent-rose-dim)">🔥</div>
+                    <div class="stop-info">
+                        <div class="stop-name" style="color:var(--accent-rose)">905m gain, ZERO descent</div>
+                        <div class="stop-detail">3–4 hrs · Strip to t-shirt</div>
+                    </div>
+                </div>
+                <div class="elev-connector"></div>
+
+                <div class="elev-stop">
+                    <div class="stop-elev" style="color:var(--accent-sky)">1,265m</div>
+                    <div class="stop-icon" style="background:var(--accent-sky-dim)">🏞️</div>
+                    <div class="stop-info">
+                        <div class="stop-name">Eddet River</div>
+                        <div class="stop-detail">Lunch stop · T-shirt weather on the climb</div>
+                        <div class="elev-bar-bg">
+                            <div class="elev-bar-fill" style="width:25%;background:var(--accent-sky)"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elev-connector"></div>
+
+                <div class="elev-stop">
+                    <div class="stop-elev" style="color:var(--accent-orange)">1,314m</div>
+                    <div class="stop-icon" style="background:var(--accent-orange-dim)">🥾</div>
+                    <div class="stop-info">
+                        <div class="stop-name">Akiki Ranger Station</div>
+                        <div class="stop-detail">START · Light layers, pack the fleece</div>
+                        <div class="elev-bar-bg">
+                            <div class="elev-bar-fill" style="width:27%;background:var(--accent-orange)"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ================================================================ -->
+        <!-- ======================== DAY 1 ================================= -->
+        <!-- ================================================================ -->
+        <div class="day-header day-1" id="day1">
+            <div class="day-label">Day 1 — March 4 (Wednesday)</div>
+            <h2>Travel + Trek to Camp</h2>
+            <div class="day-desc">Baguio → DENR → Akiki Ranger Station → Eddet River → Marlboro Country</div>
+        </div>
+
+        <!-- Pre-Trek -->
+        <div class="section-title">Pre-Trek: Baguio → Mt. Pulag</div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4:00 AM</td>
+                        <td><strong>Wake up in Baguio</strong></td>
+                        <td>Both set multiple alarms</td>
+                    </tr>
+                    <tr>
+                        <td>4:15 AM</td>
+                        <td>Final gear check, freshen up</td>
+                        <td>Everything packed night before</td>
+                    </tr>
+                    <tr>
+                        <td>4:30 AM</td>
+                        <td>Head to meeting point</td>
+                        <td>Taxi or walk, depending on pickup location</td>
+                    </tr>
+                    <tr>
+                        <td>~5:00 AM</td>
+                        <td>🤝 <strong>Meet Manila team</strong></td>
+                        <td>They arrive after overnight bus from Manila</td>
+                    </tr>
+                    <tr>
+                        <td>5:00–5:30 AM</td>
+                        <td>Load up, last supply run</td>
+                        <td>Buy any last-minute food/water if needed</td>
+                    </tr>
+                    <tr>
+                        <td>5:30 AM</td>
+                        <td>🚐 <strong>Depart Baguio for Mt. Pulag</strong></td>
+                        <td>Via monster jeep or van — rough road</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="subsection-title">Travel: Baguio → DENR → Akiki Ranger Station</div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5:30–7:30 AM</td>
+                        <td><strong>Drive to DENR Office (Ambangeg)</strong></td>
+                        <td>~2 hours, winding mountain roads. ⚠️ Take Bonamine before departure if prone to motion
+                            sickness</td>
+                    </tr>
+                    <tr>
+                        <td>7:30–8:30 AM</td>
+                        <td><strong>DENR registration &amp; orientation</strong></td>
+                        <td>Present medical certificates + IDs (both of you!). Pay fees, attend mandatory briefing</td>
+                    </tr>
+                    <tr>
+                        <td>8:30–9:00 AM</td>
+                        <td>Transfer to Akiki Ranger Station</td>
+                        <td>Short jeep ride to the Akiki jump-off point in Kabayan</td>
+                    </tr>
+                    <tr>
+                        <td>~9:00 AM</td>
+                        <td><strong>Register at Akiki Ranger Station</strong></td>
+                        <td>Meet your assigned trail guide</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SEGMENT 1 -->
+        <div class="segment-header">
+            <div class="segment-num" style="background:var(--accent-emerald-dim);color:var(--accent-emerald)">1</div>
+            <div>
+                <div class="seg-title">📍 Akiki Ranger Station → Eddet River</div>
+                <div class="seg-stats">1,314m → 1,265m &nbsp;|&nbsp; Net: −49m &nbsp;|&nbsp; ↑ +178m / ↓ −227m
+                    &nbsp;|&nbsp; ~2–2.5 hrs</div>
+            </div>
+        </div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Segment 1</div>
+            <p>It's ~9AM and already warming up. You're about to descend and will heat up fast.</p>
+            <ul>
+                <li><strong>Top:</strong> Moisture-wicking t-shirt or light long-sleeve (no fleece — you'll be too hot)
+                </li>
+                <li><strong>Bottom:</strong> Trekking pants or shorts</li>
+                <li><strong>Feet:</strong> Trekking boots + liner socks — trail is rocky and loose on the descent</li>
+                <li><strong>Pack away:</strong> Fleece, jacket — you won't need them until Eddet River or the climb</li>
+                <li><strong>Sun protection:</strong> Hat + sunscreen — pine canopy is open in sections</li>
+            </ul>
+            <div class="tip">Don't start in too many layers. You'll regret it by the time you reach the river.</div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Segment 1</div>
+            <ul>
+                <li><strong>Duacan Primary School (~1,409m)</strong> — just 10–15 min from the ranger station. Remote
+                    mountain school framed by pine trees. Great establishing shot. 28mm wide end.</li>
+                <li><strong>Halsema Highway Viewpoint (~1,431m)</strong> — clearing with views back toward Halsema
+                    Highway cutting through mountain slopes — the highest national road in the Philippines at ~2,500m.
+                    Telephoto (100–200mm) to compress the road against the ridgelines.</li>
+                <li><strong>Eddet River (1,265m)</strong> — shoot the river itself before lunch. Water, rocks, pine
+                    forest backdrop. Also good for environmental portraits of your partner at the crossing.</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Terrain</th>
+                        <th>Tips</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-start">
+                        <td>~9:00–9:30 AM</td>
+                        <td>🥾 <strong>START TREK</strong> from Akiki Ranger Station (1,314m)</td>
+                        <td>Pine forest, mild terrain</td>
+                        <td>Start slow, find your pace. Don't rush.</td>
+                    </tr>
+                    <tr>
+                        <td>9:30–10:00 AM</td>
+                        <td>Descend through pine forest toward Eddet River valley</td>
+                        <td>Downhill, rocky path</td>
+                        <td>Trekking poles help on loose ground.</td>
+                    </tr>
+                    <tr>
+                        <td>10:00–10:30 AM</td>
+                        <td>Continue descent</td>
+                        <td>Steeper downhill sections</td>
+                        <td>Watch your footing. Knees take a beating going down with a heavy pack.</td>
+                    </tr>
+                    <tr>
+                        <td>10:30–11:00 AM</td>
+                        <td>Approach Eddet River</td>
+                        <td>Trail levels out near the river</td>
+                        <td>You'll hear the river before you see it.</td>
+                    </tr>
+                    <tr class="row-arrive">
+                        <td>~11:00–11:30 AM</td>
+                        <td>🏞️ <strong>ARRIVE EDDET RIVER (1,265m)</strong></td>
+                        <td>River valley, flat campsite area</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Eddet River Rest -->
+        <div class="subsection-title">Eddet River Rest Stop (30–60 min)</div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>11:30 AM–12:00 PM</td>
+                        <td><strong>REST &amp; LUNCH at Eddet River</strong></td>
+                        <td>Proper campsite with flat ground and a bunkhouse</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Refill water bottles from the river</td>
+                        <td>Use purification tablets or filter</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Eat a solid meal — you need the fuel</td>
+                        <td>Trail mix, energy bars, packed lunch</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Wash up / cool down</td>
+                        <td>Last easy water access on the trail</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-card warning">
+            <div class="card-label">⚠️ Warning</div>
+            <p><strong>Don't stay too long</strong> — the hard part is next. The killer climb starts after here.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SEGMENT 2 -->
+        <div class="segment-header">
+            <div class="segment-num" style="background:var(--accent-rose-dim);color:var(--accent-rose)">2</div>
+            <div>
+                <div class="seg-title">📍 Eddet River → Marlboro Country — THE KILLER SECTION</div>
+                <div class="seg-stats">1,265m → 2,170m &nbsp;|&nbsp; Net: +905m &nbsp;|&nbsp; ↑ +905m / ↓ 0m
+                    &nbsp;|&nbsp; ~3.5–4 hrs<br>905m of relentless elevation gain. No flat sections. The GPX confirms:
+                    literally zero descent.</div>
+            </div>
+        </div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Segment 2 (The Killer Section)</div>
+            <p>You are about to sweat more than you've ever sweat on a trail. Dress for heat output, not ambient
+                temperature.</p>
+            <ul>
+                <li><strong>Top:</strong> Single moisture-wicking t-shirt only — if you start in a long sleeve you'll be
+                    peeling it off within 20 minutes</li>
+                <li><strong>Bottom:</strong> Trekking pants — loose soil and exposed roots; shorts fine if the heat is
+                    intense</li>
+                <li><strong>Feet:</strong> Same boots — the trail gets steeper and grip matters more now</li>
+                <li><strong>Pack away:</strong> Everything. Jacket, fleece, all of it deep in your bag</li>
+                <li><strong>Sun:</strong> Hat is useful — pine canopy thins as you gain altitude in the upper half</li>
+                <li><strong>Hands:</strong> Trekking poles — this is where you'll use them most</li>
+            </ul>
+            <div class="tip">The golden rule: if you're not slightly cold at the start of the climb, you're overdressed.
+            </div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Segment 2</div>
+            <p>You will be exhausted here. Keep the camera accessible but don't stop for long.</p>
+            <ul>
+                <li><strong>Ibaloi Burial Sites (~1,853m)</strong> — ancient wooden coffins embedded in the cliff face
+                    mid-trail. Your guide will point these out. This is a once-in-a-trip shot — slow down and take it.
+                    Respect the site. No flash.</li>
+                <li><strong>Pine canopy looking up (~1,600–1,800m)</strong> — during one of your rest stops, shoot
+                    upward through the pine crowns. Backlit needles and branches against the sky. 28mm wide.</li>
+                <li><strong>The moment the pines thin (~2,000m+)</strong> — when the forest starts breaking and the
+                    ridge opens, turn around. You'll see the valley and Halsema below you. First real scale-of-climb
+                    shot.</li>
+            </ul>
+            <div class="tip">Keep your a7C2 on a chest harness or front of pack strap so you can grab it at rest stops
+                without dropping your bag.</div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Terrain</th>
+                        <th>Tips</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-start">
+                        <td>~12:00 PM</td>
+                        <td>🥾 <strong>Resume trek — begin the killer climb</strong></td>
+                        <td>Immediately steep</td>
+                        <td>Set a sustainable pace. This section breaks people who start too fast.</td>
+                    </tr>
+                    <tr>
+                        <td>12:00–1:00 PM</td>
+                        <td>Steep pine forest ascent</td>
+                        <td>Very steep, exposed roots, loose soil</td>
+                        <td>10–15 min hiking, 2–3 min rest. Repeat. Hydrate every stop.</td>
+                    </tr>
+                    <tr>
+                        <td>~1:00 PM</td>
+                        <td>Short trail break</td>
+                        <td>Find shade</td>
+                        <td>Snack, water, catch breath. Check on each other.</td>
+                    </tr>
+                    <tr>
+                        <td>1:00–2:00 PM</td>
+                        <td>Continue steep ascent (~1,500–1,750m)</td>
+                        <td>Relentless uphill</td>
+                        <td>You'll pass indigenous burial sites — respect these.</td>
+                    </tr>
+                    <tr>
+                        <td>~2:00 PM</td>
+                        <td>Mid-climb break (~1,750m)</td>
+                        <td>Slight clearing</td>
+                        <td>Energy bar, chocolate, banana. You're burning serious calories.</td>
+                    </tr>
+                    <tr>
+                        <td>2:00–3:00 PM</td>
+                        <td>Upper slopes (~1,750–2,000m)</td>
+                        <td>Still steep but occasional flat patches</td>
+                        <td>Pine trees start thinning. Mental game now.</td>
+                    </tr>
+                    <tr>
+                        <td>3:00–3:30 PM</td>
+                        <td>Final push (~2,000–2,170m)</td>
+                        <td>Trail opens up</td>
+                        <td>When you see the brown rolling hills — you're through the worst.</td>
+                    </tr>
+                    <tr class="row-camp">
+                        <td>~3:30–4:00 PM</td>
+                        <td>🏕️ <strong>ARRIVE MARLBORO COUNTRY (2,170m)</strong></td>
+                        <td>Open brown hillside, wide views</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- CAMP 1 -->
+        <div class="section-title">Camp 1: Marlboro Country — Overnight</div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Marlboro Country Camp (2,170m · 5–12°C overnight)</div>
+            <p>You are soaked in sweat. The temperature will drop sharply after sunset. <strong>Change everything
+                    immediately on arrival — this is not optional.</strong></p>
+            <div class="sub-label">On arrival (4:00–5:00 PM):</div>
+            <ul>
+                <li>Strip and dry off with your pack towel</li>
+                <li>Change into completely dry base layer top + bottom (this is your sleep layer)</li>
+                <li>Add mid layer fleece over base layer</li>
+                <li>Add down jacket or insulated jacket on top</li>
+                <li>Dry socks + camp shoes or extra socks</li>
+                <li>Bonnet on once the sun drops</li>
+            </ul>
+            <div class="sub-label">For sleeping:</div>
+            <ul>
+                <li><strong>Yes — sleep in your base layer.</strong> At 5–12°C inside a tent, base layers are essential.
+                    Your sleeping bag rating alone won't be enough without a thermal base layer underneath.</li>
+                <li>Base layer top + bottom → mid layer fleece → sleeping bag → down jacket draped on top if needed</li>
+                <li>Bonnet and gloves on in the bag — you lose heat from your extremities fast</li>
+                <li>Camera batteries and phone batteries inside your sleeping bag or jacket pocket overnight</li>
+            </ul>
+            <div class="tip">Do not sleep in the clothes you hiked in. Damp clothing against your skin at 5°C will wake
+                you up cold at 2AM.</div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Marlboro Country (Golden Hour + Night)</div>
+            <div class="sub-label">Golden Hour (5:00–5:30 PM) — highest priority shoot of Day 1:</div>
+            <ul>
+                <li>Position yourself on the western-facing ridge just above camp before 5PM</li>
+                <li>The pine-covered slopes below catch warm orange light — shoot wide (28mm) for the landscape, zoom in
+                    (100–200mm) to compress ridgelines</li>
+                <li>Silhouette your partner against the golden sky on the ridge</li>
+                <li>Shoot the camp itself — tents in the foreground, Cordillera ridges behind</li>
+            </ul>
+            <div class="sub-label">Milky Way / Night Sky (7:30 PM onwards):</div>
+            <ul>
+                <li>Marlboro Country at 2,170m with zero light pollution is exceptional for astrophotography</li>
+                <li>Sony a7C2 settings: f/2.8 (widest aperture), ISO 3200–6400, 20–25 sec exposure</li>
+                <li>Foreground: use a tent with a headlamp inside as your light source — warm tent glow + Milky Way arc
+                    is the shot</li>
+                <li><strong>Keep your batteries warm</strong> — cold kills battery life fast. Swap in a warm battery
+                    from your jacket pocket right before shooting</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4:00–4:30 PM</td>
+                        <td><strong>Set up camp</strong></td>
+                        <td>Pitch tents, organize sleeping area</td>
+                    </tr>
+                    <tr>
+                        <td>4:30–5:00 PM</td>
+                        <td><strong>Change into dry clothes immediately</strong></td>
+                        <td>Wet clothes + cold night = hypothermia risk</td>
+                    </tr>
+                    <tr class="row-highlight">
+                        <td>5:00–5:30 PM</td>
+                        <td>🌅 <strong>Sunset + Golden Hour at Marlboro Country</strong></td>
+                        <td>📷 Camera time — see photo notes above</td>
+                    </tr>
+                    <tr>
+                        <td>5:30–6:30 PM</td>
+                        <td>Dinner</td>
+                        <td>Prepared by porter/guide or cook your own</td>
+                    </tr>
+                    <tr>
+                        <td>6:30–7:00 PM</td>
+                        <td>Hot drinks, socials with the group</td>
+                        <td>Coffee, hot chocolate</td>
+                    </tr>
+                    <tr>
+                        <td>7:00–7:30 PM</td>
+                        <td>Prepare for bed</td>
+                        <td>Batteries into sleeping bag now</td>
+                    </tr>
+                    <tr class="row-highlight">
+                        <td>7:30 PM onwards</td>
+                        <td>📷 <strong>Milky Way window</strong> (if clear skies)</td>
+                        <td>See photo notes above</td>
+                    </tr>
+                    <tr>
+                        <td>8:00 PM</td>
+                        <td>💤 <strong>Lights out</strong></td>
+                        <td>Sleep as much as you can</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- ======================== DAY 2 ================================= -->
+        <!-- ================================================================ -->
+        <div class="day-header day-2" id="day2">
+            <div class="day-label">Day 2 — March 5 (Thursday)</div>
+            <h2>Summit Day 🏔️</h2>
+            <div class="day-desc">Marlboro Country → Mossy Forest → Grassland → Saddle Camp → Summit → Pre-Dawn Return
+            </div>
+        </div>
+
+        <!-- SEGMENT 3 -->
+        <div class="segment-header">
+            <div class="segment-num" style="background:var(--accent-teal-dim);color:var(--accent-teal)">3</div>
+            <div>
+                <div class="seg-title">📍 Marlboro Country → Mossy Forest</div>
+                <div class="seg-stats">2,170m → 2,389m &nbsp;|&nbsp; Net: +219m &nbsp;|&nbsp; ↑ +219m / ↓ 0m
+                    &nbsp;|&nbsp; ~1.5–2 hrs</div>
+            </div>
+        </div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Segment 3</div>
+            <p>Cool morning start (~5–8°C). You're climbing at a moderate gradient — you'll warm up but not as violently
+                as yesterday.</p>
+            <ul>
+                <li><strong>Start of trek:</strong> Base layer + mid layer fleece. Keep the jacket on for the first 20
+                    minutes until you warm up, then shed it into your pack.</li>
+                <li><strong>Bottom:</strong> Trekking pants — morning dew on vegetation will wet your legs through
+                    shorts</li>
+                <li><strong>Hands:</strong> Light liner gloves at the start — your hands will be cold until the sun hits
+                </li>
+                <li><strong>Head:</strong> Buff or light beanie until you're moving well</li>
+            </ul>
+            <div class="tip">You'll naturally regulate — start slightly overdressed and peel back one layer once the
+                pace is up.</div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Segment 3</div>
+            <ul>
+                <li><strong>Marlboro Country at dawn (6:00–6:30 AM)</strong> — before you leave camp, shoot the morning
+                    light on the hills. Different mood from yesterday's golden hour — cooler, bluer, misty. Tents in
+                    foreground with ridges behind.</li>
+                <li><strong>Pine-to-mossy forest transition (~2,300m)</strong> — the moment the pines give way to the
+                    first moss-covered trees is visually striking. The shift happens gradually then suddenly. Look for
+                    the first heavily moss-draped branches.</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Terrain</th>
+                        <th>Tips</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5:00–5:30 AM</td>
+                        <td>Wake up + breakfast</td>
+                        <td>Cold morning</td>
+                        <td>Eat well — big day ahead</td>
+                    </tr>
+                    <tr>
+                        <td>5:30–6:00 AM</td>
+                        <td>Break camp</td>
+                        <td>Pack everything, leave no trace</td>
+                        <td>Roll sleeping bag while still warm</td>
+                    </tr>
+                    <tr class="row-highlight">
+                        <td>6:00–6:30 AM</td>
+                        <td>📷 <strong>Morning light at Marlboro Country</strong></td>
+                        <td>Golden morning views</td>
+                        <td>Quick shoot before departure</td>
+                    </tr>
+                    <tr class="row-start">
+                        <td>~6:30 AM</td>
+                        <td>🥾 <strong>Resume trek toward Mossy Forest</strong></td>
+                        <td>Rolling terrain, moderate incline</td>
+                        <td>Fresh legs, cool morning</td>
+                    </tr>
+                    <tr>
+                        <td>6:30–7:30 AM</td>
+                        <td>Transition zone — pine to mossy forest (~2,170–2,300m)</td>
+                        <td>Trail enters denser vegetation</td>
+                        <td>Temperature drops as you enter the canopy</td>
+                    </tr>
+                    <tr>
+                        <td>7:30–8:00 AM</td>
+                        <td>Short break at mossy forest edge (~2,350m)</td>
+                        <td>Lush, green</td>
+                        <td></td>
+                    </tr>
+                    <tr class="row-arrive">
+                        <td>~8:00 AM</td>
+                        <td>🌿 <strong>ENTER MOSSY FOREST (2,389m)</strong></td>
+                        <td>Dense cloud forest, moss-covered trees</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SEGMENT 4 -->
+        <div class="segment-header">
+            <div class="segment-num" style="background:var(--accent-emerald-dim);color:var(--accent-emerald)">4</div>
+            <div>
+                <div class="seg-title">📍 Mossy Forest → Grassland</div>
+                <div class="seg-stats">2,389m → 2,584m &nbsp;|&nbsp; Net: +195m &nbsp;|&nbsp; ↑ +195m / ↓ 0m
+                    &nbsp;|&nbsp; ~2–2.5 hrs</div>
+            </div>
+        </div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Segment 4 (Mossy Forest)</div>
+            <p>The mossy forest is cold, damp, and dark under the canopy. You're not climbing steeply but the technical
+                footing keeps your effort moderate.</p>
+            <ul>
+                <li><strong>Keep your mid layer on</strong> — you won't sweat heavily enough to justify stripping down
+                    here</li>
+                <li><strong>Add a light wind/rain shell over your fleece</strong> — the canopy drips constantly and
+                    everything is wet. Keeps your mid layer dry for when you emerge into exposed grassland</li>
+                <li><strong>Gaiters</strong> — mud and wet roots will spray up your lower legs</li>
+                <li><strong>Trekking poles essential</strong> — slippery roots, uneven ground. Both hands on poles.</li>
+                <li><strong>Gloves</strong> — optional but your hands will be cold grabbing wet vegetation</li>
+            </ul>
+            <div class="tip">The temptation is to stay warm and keep moving without stopping. Resist — the mossy forest
+                is one of the best shooting environments on the whole trail.</div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Segment 4 (Mossy Forest) — Don't Rush This Section</div>
+            <p>This is the most visually unique zone on the entire trail. Otherworldly and difficult to capture well —
+                take your time.</p>
+            <ul>
+                <li><strong>Moss-covered tree trunks</strong> — get close. Fill the frame with texture. The a7C2 at 28mm
+                    minimum focus distance works well here. Look for hanging moss with backlight filtering through the
+                    canopy.</li>
+                <li><strong>Root systems</strong> — the root tangles covering the trail are extraordinary abstract
+                    subjects. Shoot down from standing height or get low.</li>
+                <li><strong>Fog and depth</strong> — if there's cloud in the forest (very likely in March), shoot along
+                    the trail looking into the mist. A figure (your partner) mid-trail at 30–40m gives scale and depth.
+                </li>
+                <li><strong>Dwarf bamboo transition</strong> — when bamboo starts appearing alongside the mossy trees,
+                    you're nearing the exit. Shoot the mixed vegetation before you lose it.</li>
+            </ul>
+            <div class="tip">The a7C2's IBIS is very helpful here for handheld in low light under the canopy. Stay on
+                Auto ISO with a minimum 1/60 shutter floor.</div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Terrain</th>
+                        <th>Tips</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>8:00–9:00 AM</td>
+                        <td>Trek through mossy forest</td>
+                        <td>Muddy, root-tangled</td>
+                        <td>Every step deliberate. Trekking poles mandatory.</td>
+                    </tr>
+                    <tr>
+                        <td>9:00–9:30 AM</td>
+                        <td>Rest break (~2,450m)</td>
+                        <td></td>
+                        <td>Technically demanding even without steep gradient</td>
+                    </tr>
+                    <tr>
+                        <td>9:30–10:30 AM</td>
+                        <td>Continue through mossy forest, approaching dwarf bamboo zone (~2,500m)</td>
+                        <td>Gradually opening up</td>
+                        <td>Trees getting shorter — you're nearing grassland</td>
+                    </tr>
+                    <tr class="row-arrive">
+                        <td>~10:30–11:00 AM</td>
+                        <td>🌾 <strong>EMERGE INTO GRASSLAND (2,584m)</strong></td>
+                        <td>Open, windswept grass ridges</td>
+                        <td>Views open up suddenly. You can see the summit!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SEGMENT 5 -->
+        <div class="segment-header">
+            <div class="segment-num" style="background:var(--accent-emerald-dim);color:var(--accent-emerald)">5</div>
+            <div>
+                <div class="seg-title">📍 Grassland → Saddle Camp</div>
+                <div class="seg-stats">2,584m → 2,815m &nbsp;|&nbsp; Net: +231m &nbsp;|&nbsp; ↑ +287m / ↓ −56m
+                    &nbsp;|&nbsp; ~1 hr<br>Note: the GPX shows a −56m dip — there's a rolling descent on the ridge
+                    before the final push to Saddle Camp.</div>
+            </div>
+        </div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Segment 5 (Grassland)</div>
+            <p>You have just walked out of a sheltered forest into fully exposed, windswept open ridge at 2,584m. This
+                is the biggest temperature shock on the trail.</p>
+            <ul>
+                <li><strong>Put your wind/shell jacket on immediately</strong> — the grassland is exposed and wind can
+                    be brutal. Don't wait until you're already cold.</li>
+                <li><strong>Buff or balaclava over your face</strong> — at this altitude with wind, exposed skin loses
+                    heat fast</li>
+                <li><strong>Gloves on</strong> — fingers will go numb in wind at this elevation without them</li>
+                <li><strong>Sunglasses</strong> — UV intensity is high above 2,500m, and wind will dry your eyes</li>
+                <li><strong>Bottom:</strong> Trekking pants — wind penetrates shorts at this altitude</li>
+            </ul>
+            <div class="tip">Layer up immediately at the grassland entry. It takes 5 minutes to get cold and 20 minutes
+                to warm back up if you leave it too late.</div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Segment 5 (Grassland) — Peak Photo Territory</div>
+            <p>This is the iconic Mt. Pulag shot. If you get one great image from this trip, it will probably be here.
+            </p>
+            <ul>
+                <li><strong>Sea of Clouds Viewpoint (~2,750m)</strong> — marked on your Garmin GPX. The valleys fill
+                    with cloud while the summit rises above. Shoot wide (28mm) with rolling dwarf bamboo ridges in the
+                    foreground. If you see the sea of clouds, stop and shoot immediately — it can close in or dissipate
+                    within minutes.</li>
+                <li><strong>Summit visible from grassland</strong> — 70–200mm telephoto compression with the grassy
+                    foreground and summit ridge behind. Extraordinary scale.</li>
+                <li><strong>Your partner in the landscape</strong> — at this scale, a human figure gives the grassland
+                    its true size. Shoot them walking away from you toward the summit.</li>
+                <li><strong>Wind-bent bamboo</strong> — shoot into the wind at ground level. The dwarf bamboo bending in
+                    the same direction across the ridge is a strong compositional element.</li>
+            </ul>
+            <div class="tip">Wind tip: the a7C2's shutter speed needs to be up — at least 1/500 to freeze wind-blown
+                vegetation. Don't shoot too slow.</div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Terrain</th>
+                        <th>Tips</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>11:00 AM–12:00 PM</td>
+                        <td>Trek across grassland toward Saddle Camp (~2,584–2,815m)</td>
+                        <td>Gentle rolling hills, some ups and downs</td>
+                        <td>Exposed — wind can be strong. Layer up immediately. 📷 Peak photo territory.</td>
+                    </tr>
+                    <tr class="row-camp">
+                        <td>~12:00–12:30 PM</td>
+                        <td>🏕️ <strong>ARRIVE SADDLE CAMP (2,815m)</strong></td>
+                        <td>Flat campsite just below the summit</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SEGMENT 6 — SUMMIT -->
+        <div class="segment-header">
+            <div class="segment-num" style="background:var(--accent-gold-dim);color:var(--accent-gold)">6</div>
+            <div>
+                <div class="seg-title">📍 Saddle Camp → Summit (Afternoon)</div>
+                <div class="seg-stats">2,815m → 2,922m &nbsp;|&nbsp; Net: +107m &nbsp;|&nbsp; ↑ +71m / ↓ 0m
+                    &nbsp;|&nbsp; ~15–30 min</div>
+            </div>
+        </div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Summit Assault (Afternoon, ~2:30 PM)</div>
+            <p>Light and warm. You're leaving your heavy gear at camp.</p>
+            <ul>
+                <li><strong>Base layer + mid layer fleece + wind/shell jacket</strong> — summit wind is unpredictable
+                    and can be strong</li>
+                <li><strong>Buff/balaclava</strong> — bring it even if it's not cold yet. On the exposed summit ridge,
+                    temperature and wind can change in minutes.</li>
+                <li><strong>Gloves</strong> — summit standard. Pack them even if your hands are warm on the way up.</li>
+                <li><strong>Light trekking pants</strong></li>
+                <li><strong>Leave in camp:</strong> Down jacket (keep it for the return when you stop moving), sleeping
+                    bag, heavy gear</li>
+            </ul>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Summit (Afternoon)</div>
+            <ul>
+                <li><strong>Summit marker + wide landscape</strong> — first priority on arrival. 28mm, shoot the marker
+                    with the cloud sea behind. You've earned this shot.</li>
+                <li><strong>360° panorama</strong> — the summit ridge allows a full panorama. Shoot a 5–7 frame sequence
+                    at 28mm for stitching later in Lightroom.</li>
+                <li><strong>Cloud dynamics</strong> — afternoon clouds build and shift fast at 2,922m. Shoot
+                    continuously during movement — dramatic timelapse potential.</li>
+                <li><strong>🚁 Drone</strong> — if DENR/guide confirms allowed, this is the primary drone moment.
+                    Afternoon light, full cloud sea below, summit ridge visible. Get the drone up fast — wind can close
+                    the window.</li>
+                <li><strong>Sunset (optional, ~4:30–5:00 PM)</strong> — if you stay, position yourself on the western
+                    edge of the summit. Silhouette of your partner against the sunset sky on the summit is the hero shot
+                    of the trip.</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12:30–1:30 PM</td>
+                        <td><strong>Set up camp at Saddle Camp (2,815m)</strong></td>
+                        <td>Secure tents well — wind can be fierce</td>
+                    </tr>
+                    <tr>
+                        <td>1:30–2:30 PM</td>
+                        <td>Lunch and rest</td>
+                        <td>Eat, hydrate, recover</td>
+                    </tr>
+                    <tr class="row-start">
+                        <td>~2:30–3:00 PM</td>
+                        <td>🥾 <strong>SUMMIT ASSAULT</strong></td>
+                        <td>Light pack: camera, water, jacket, phone only</td>
+                    </tr>
+                    <tr class="row-summit">
+                        <td>~3:00–3:15 PM</td>
+                        <td>🏔️ <strong>SUMMIT! 2,922 MASL</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr class="row-highlight">
+                        <td>3:15–4:30 PM</td>
+                        <td>📷 <strong>Summit shoot + explore</strong></td>
+                        <td>See photo notes above</td>
+                    </tr>
+                    <tr class="row-highlight">
+                        <td>~4:30–5:00 PM</td>
+                        <td>🌅 <strong>Sunset from the summit (optional)</strong></td>
+                        <td>15 min back to camp — can stay late</td>
+                    </tr>
+                    <tr>
+                        <td>5:00–5:15 PM</td>
+                        <td>Descend back to Saddle Camp</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SADDLE CAMP EVENING -->
+        <div class="section-title">Saddle Camp — Evening (Camp 2)</div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Saddle Camp Night (2,815m · 2–5°C · Possible −8°C)</div>
+            <p>This is the coldest night of the trip. The GPX puts you at 2,815m — recorded lows here reach −8°C in cold
+                snaps.</p>
+            <div class="sub-label">Change immediately on return from summit:</div>
+            <ul>
+                <li>Strip all sweat-damp layers off entirely</li>
+                <li>Full dry base layer top + bottom (non-negotiable at this altitude)</li>
+                <li>Mid layer fleece</li>
+                <li>Down jacket</li>
+                <li>Thick wool or fleece socks</li>
+                <li>Bonnet</li>
+            </ul>
+            <div class="sub-label">For sleeping:</div>
+            <ul>
+                <li>Everything listed above stays on inside the sleeping bag</li>
+                <li>Add gloves and balaclava/buff over your face</li>
+                <li>If your sleeping bag has a hood, cinch it tight — only your face exposed</li>
+                <li>Down jacket can go over the sleeping bag as an extra blanket if needed</li>
+                <li>Batteries (camera, drone, phone, Garmin) all inside the sleeping bag or jacket pocket against your
+                    body</li>
+            </ul>
+            <div class="tip">If you wake up at 2AM shivering, add more layers immediately — don't wait it out. Broken
+                sleep at altitude sets you up for a bad summit morning.</div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Saddle Camp Night</div>
+            <ul>
+                <li><strong>Star field / Milky Way</strong> — at 2,815m, this is your best astrophotography window. Zero
+                    light pollution, high altitude = thinner atmosphere = more stars.</li>
+                <li>Settings starting point: 28mm, f/2.8 (widest), ISO 6400–12800, 15–20 sec (500 rule: 500÷28mm = ~17
+                    sec max before star trails)</li>
+                <li>Foreground: tents with headlamp glow inside, summit silhouette, or your partner standing with a
+                    headlamp pointed up</li>
+                <li><strong>Swap in a warm battery right before shooting</strong> — cold kills battery life at this
+                    temperature. Keep one battery in your jacket inner pocket all evening.</li>
+                <li><strong>Pre-dawn setup:</strong> Set your camera settings the night before so you're not fumbling in
+                    the dark at −5°C</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5:15–6:00 PM</td>
+                        <td><strong>Change into completely dry layers</strong></td>
+                        <td>See clothing notes above — do this first</td>
+                    </tr>
+                    <tr>
+                        <td>6:00–7:00 PM</td>
+                        <td>Dinner</td>
+                        <td>Eat everything. You need the calories.</td>
+                    </tr>
+                    <tr>
+                        <td>7:00–7:30 PM</td>
+                        <td>Prepare for pre-dawn summit</td>
+                        <td>Set alarm 3:30–4:00 AM. Headlamp ready. All batteries in sleeping bag.</td>
+                    </tr>
+                    <tr class="row-highlight">
+                        <td>7:30–8:00 PM</td>
+                        <td>📷 <strong>Milky Way window</strong></td>
+                        <td>See photo notes above</td>
+                    </tr>
+                    <tr>
+                        <td>8:00 PM</td>
+                        <td>💤 <strong>Lights out</strong></td>
+                        <td>Everything on. Cinch your sleeping bag hood.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- PRE-DAWN SUMMIT -->
+        <div class="section-title">🌄 Pre-Dawn Summit Return — HIGHLY Recommended</div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Pre-Dawn Summit (~3:30–4:15 AM)</div>
+            <p>The coldest moment of the entire trip. It will be dark, windy, and potentially below 0°C.</p>
+            <ul>
+                <li><strong>Everything you own, in this order:</strong> Dry base layer top + bottom → mid layer fleece →
+                    down jacket → wind/shell jacket on top</li>
+                <li><strong>Hands:</strong> Liner gloves + thicker outer gloves or mittens over them</li>
+                <li><strong>Head:</strong> Balaclava or buff covering your face + bonnet on top</li>
+                <li><strong>Neck:</strong> Buff if you have a second one</li>
+                <li><strong>Feet:</strong> Thermal sock liner + thick trekking sock in your boots</li>
+                <li><strong>Headlamp:</strong> On and tested. Spare batteries in jacket pocket.</li>
+            </ul>
+            <div class="tip">You will feel overdressed once you start moving. That's correct. The summit is exposed and
+                you'll stop moving when you reach the top to shoot — you need that buffer.</div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Sunrise at Summit (THE Shot)</div>
+            <p>This is what you came for. Plan this like a shoot, not a hike.</p>
+            <ul>
+                <li><strong>Arrive 30–45 min before sunrise</strong> (~4:30–4:45 AM). Use the dark time to find your
+                    position and compose.</li>
+                <li><strong>Blue hour (pre-dawn):</strong> Shoot the horizon gradient — deep blue sky to orange on the
+                    horizon, with the dark mountain silhouette. This light is often better than direct sunrise.</li>
+                <li><strong>The sea of clouds:</strong> When the sun hits the clouds below the summit, they light up
+                    gold and pink from above. This is the iconic shot. Shoot wide (28mm) to capture the full scale, then
+                    zoom in (200mm) to isolate cloud textures.</li>
+                <li><strong>Your partner silhouette against the sunrise:</strong> Position them on the edge of the
+                    summit ridge backlit by the rising sun. Classic, earned, powerful image.</li>
+                <li><strong>Shoot in bursts:</strong> The clouds move fast at sunrise. Don't shoot a single frame —
+                    bracket exposures and shoot sequences.</li>
+                <li><strong>Stay after sunrise:</strong> Golden hour light at 2,922m lasts 20–30 minutes. The grassland
+                    ridges in morning light on the descent back to Saddle Camp are also extraordinary.</li>
+                <li><strong>🚁 Drone at sunrise</strong> — if conditions allow (check wind before launching), dawn at
+                    the summit is the definitive drone moment. Launch just as the light hits, before wind builds.</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3:30–4:00 AM</td>
+                        <td>Wake up</td>
+                        <td>Force yourself up. Full gear on.</td>
+                    </tr>
+                    <tr>
+                        <td>4:00–4:15 AM</td>
+                        <td>Hot drink, layer up completely</td>
+                        <td>Swap warm camera battery from sleeping bag</td>
+                    </tr>
+                    <tr class="row-start">
+                        <td>~4:15 AM</td>
+                        <td>🥾 <strong>Summit assault in the dark</strong></td>
+                        <td>Headlamp on. 15–30 min climb.</td>
+                    </tr>
+                    <tr>
+                        <td>~4:30–4:45 AM</td>
+                        <td><strong>Arrive at summit — compose and wait</strong></td>
+                        <td>Find your spot. Set up.</td>
+                    </tr>
+                    <tr class="row-summit">
+                        <td>~5:15–5:45 AM</td>
+                        <td>🌅 <strong>SUNRISE AT MT. PULAG SUMMIT (2,922 MASL)</strong></td>
+                        <td>📷 See photo notes above</td>
+                    </tr>
+                    <tr>
+                        <td>~6:00–6:30 AM</td>
+                        <td>Head back to Saddle Camp</td>
+                        <td>Shoot the grassland morning light on the way down</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- ================================================================ -->
+        <!-- ======================== DAY 3 ================================= -->
+        <!-- ================================================================ -->
+        <div class="day-header day-3" id="day3">
+            <div class="day-label">Day 3 — March 6 (Friday)</div>
+            <h2>Descend &amp; Return to Baguio</h2>
+            <div class="day-desc">Saddle Camp → Ambangeg Descent → Babadak Ranger Station → Baguio</div>
+        </div>
+
+        <!-- SEGMENT 7 -->
+        <div class="segment-header">
+            <div class="segment-num" style="background:var(--accent-sky-dim);color:var(--accent-sky)">7</div>
+            <div>
+                <div class="seg-title">📍 Summit → Babadak Ranger Station (Ambangeg)</div>
+                <div class="seg-stats">2,886m → 2,316m &nbsp;|&nbsp; Net: −571m &nbsp;|&nbsp; ↑ +101m / ↓ −671m
+                    &nbsp;|&nbsp; ~3.5–4 hrs<br>Note: +101m of re-gain is hidden in this descent — the Ambangeg trail
+                    has rolling sections.</div>
+            </div>
+        </div>
+
+        <div class="info-card clothing">
+            <div class="card-label">👕 What to Wear — Day 3 Ambangeg Descent</div>
+            <p>You start cold at camp and warm significantly as you descend 570m.</p>
+            <ul>
+                <li><strong>Leaving camp (2,815m, cold):</strong> Full layers — base layer + fleece + jacket + gloves +
+                    bonnet. Same as summit night.</li>
+                <li><strong>By ~2,600m (grassland):</strong> Gloves off, bonnet off, unzip jacket</li>
+                <li><strong>By ~2,400m (forest re-entry):</strong> Jacket into the pack, trekking in fleece</li>
+                <li><strong>By ~2,316m (Babadak):</strong> You'll likely be in just a t-shirt or light long-sleeve again
+                </li>
+            </ul>
+            <div class="tip"><strong>Knees:</strong> The Ambangeg descent is long and gradual — trekking poles help
+                enormously on a 570m descent with tired legs and a full pack. Tighten boot laces to lock your heel and
+                reduce hot spots.</div>
+        </div>
+
+        <div class="info-card camera">
+            <div class="card-label">📷 Camera — Day 3 Ambangeg Descent</div>
+            <p>Most hikers power-hike the descent to get to Baguio. Don't — there are shots here that almost nobody
+                gets.</p>
+            <ul>
+                <li><strong>Summit Lookback (~2,842m)</strong> — marked on your Garmin GPX. About 15–20 min into the
+                    descent, turn around. The last clear view back to the Pulag summit ridge. Telephoto (100–200mm)
+                    compresses the distance beautifully.</li>
+                <li><strong>Sea of clouds from above on descent</strong> — as you descend, the cloud sea is now beside
+                    and below you instead of above. The relationship between the trail, your figure, and the clouds
+                    shifts completely.</li>
+                <li><strong>Ambangeg Open Ridgeline (~2,630m)</strong> — marked on your GPX. Wide open ridge with valley
+                    views on both sides. Most people don't stop here. 28mm wide captures the full expanse.</li>
+                <li><strong>Morning light on pine forest (below ~2,400m)</strong> — the low-angle morning sun shafting
+                    through the Ambangeg pine forest is very different from the Akiki side. Shoot the light rays if you
+                    hit this section before ~9AM.</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Terrain</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>6:30–7:00 AM</td>
+                        <td>Return to Saddle Camp from summit</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7:00–7:30 AM</td>
+                        <td>Breakfast at camp (2,815m)</td>
+                        <td></td>
+                        <td>Last mountain meal</td>
+                    </tr>
+                    <tr>
+                        <td>7:30–8:00 AM</td>
+                        <td>Break camp, pack everything</td>
+                        <td></td>
+                        <td>Leave no trace</td>
+                    </tr>
+                    <tr class="row-start">
+                        <td>~8:00 AM</td>
+                        <td>🥾 <strong>Start descent via Ambangeg Trail</strong></td>
+                        <td>Grassland, well-maintained</td>
+                        <td>Much easier than Akiki</td>
+                    </tr>
+                    <tr class="row-highlight">
+                        <td>8:00–9:00 AM</td>
+                        <td>Grassland section (~2,815–2,650m)</td>
+                        <td>Gentle downhill</td>
+                        <td>📷 Summit lookback + sea of clouds</td>
+                    </tr>
+                    <tr>
+                        <td>9:00–10:00 AM</td>
+                        <td>Pass through Camp 2 Ambangeg (~2,650–2,500m)</td>
+                        <td>Mossy/dwarf bamboo forest</td>
+                        <td>Steady descent, some muddy sections</td>
+                    </tr>
+                    <tr>
+                        <td>~10:00–10:30 AM</td>
+                        <td>Short rest break (~2,500m)</td>
+                        <td></td>
+                        <td>Snack, water, stretch</td>
+                    </tr>
+                    <tr>
+                        <td>10:30–11:30 AM</td>
+                        <td>Continue descent past Camp 1 (~2,500–2,400m)</td>
+                        <td>Pine forest</td>
+                        <td>Trekking poles essential — your knees will feel this</td>
+                    </tr>
+                    <tr class="row-arrive">
+                        <td>~11:30 AM–12:00 PM</td>
+                        <td><strong>Arrive at Babadak Ranger Station (2,316m)</strong></td>
+                        <td>End of trail</td>
+                        <td>~3.5–4 hrs from Saddle Camp</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Ranger Station to Baguio -->
+        <div class="section-title">Ranger Station → Baguio</div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12:00–12:30 PM</td>
+                        <td>Register out, settle fees</td>
+                        <td>Wash up at ranger station</td>
+                    </tr>
+                    <tr>
+                        <td>12:30–1:00 PM</td>
+                        <td>Lunch near ranger station</td>
+                        <td>You've earned a real meal</td>
+                    </tr>
+                    <tr>
+                        <td>1:00–1:30 PM</td>
+                        <td>Board jeepney/van back to Baguio</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1:30–4:00 PM</td>
+                        <td>Travel back to Baguio</td>
+                        <td>Bonamine if needed</td>
+                    </tr>
+                    <tr class="row-arrive">
+                        <td>~4:00–4:30 PM</td>
+                        <td><strong>Arrive in Baguio</strong></td>
+                        <td>Check in to accommodation</td>
+                    </tr>
+                    <tr>
+                        <td>4:30 PM onwards</td>
+                        <td>Shower, rest, celebrate 🎉</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Evening</td>
+                        <td><strong>Dinner — you deserve a feast</strong></td>
+                        <td>Session Road</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- ======================== SUMMARY ======================== -->
+        <div class="section-title" id="summary">⏱️ Trek Time &amp; Elevation Summary</div>
+
+        <div class="table-wrap">
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Day</th>
+                        <th>Est. Time</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Net</th>
+                        <th>↑ Gain</th>
+                        <th>↓ Loss</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ranger Station → Eddet River</td>
+                        <td>Day 1</td>
+                        <td>2–2.5 hrs</td>
+                        <td>1,314m</td>
+                        <td>1,265m</td>
+                        <td>−49m</td>
+                        <td>+178m</td>
+                        <td>−227m</td>
+                    </tr>
+                    <tr>
+                        <td>Eddet River → Marlboro Country</td>
+                        <td>Day 1</td>
+                        <td>3.5–4 hrs</td>
+                        <td>1,265m</td>
+                        <td>2,170m</td>
+                        <td>+905m</td>
+                        <td>+905m</td>
+                        <td>0m</td>
+                    </tr>
+                    <tr>
+                        <td>Marlboro Country → Mossy Forest</td>
+                        <td>Day 2</td>
+                        <td>1.5–2 hrs</td>
+                        <td>2,170m</td>
+                        <td>2,389m</td>
+                        <td>+219m</td>
+                        <td>+219m</td>
+                        <td>0m</td>
+                    </tr>
+                    <tr>
+                        <td>Mossy Forest → Grassland</td>
+                        <td>Day 2</td>
+                        <td>2–2.5 hrs</td>
+                        <td>2,389m</td>
+                        <td>2,584m</td>
+                        <td>+195m</td>
+                        <td>+195m</td>
+                        <td>0m</td>
+                    </tr>
+                    <tr>
+                        <td>Grassland → Saddle Camp</td>
+                        <td>Day 2</td>
+                        <td>1 hr</td>
+                        <td>2,584m</td>
+                        <td>2,815m</td>
+                        <td>+231m</td>
+                        <td>+287m</td>
+                        <td>−56m</td>
+                    </tr>
+                    <tr>
+                        <td>Saddle Camp → Summit</td>
+                        <td>Day 2</td>
+                        <td>15–30 min</td>
+                        <td>2,815m</td>
+                        <td>2,922m</td>
+                        <td>+107m</td>
+                        <td>+71m</td>
+                        <td>0m</td>
+                    </tr>
+                    <tr>
+                        <td>Summit → Babadak (Ambangeg)</td>
+                        <td>Day 3</td>
+                        <td>3.5–4 hrs</td>
+                        <td>2,886m</td>
+                        <td>2,316m</td>
+                        <td>−571m</td>
+                        <td>+101m</td>
+                        <td>−671m</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL</strong></td>
+                        <td></td>
+                        <td><strong>~14–15 hrs</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>↑ 1,956m</strong></td>
+                        <td><strong>↓ 955m</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout emerald">
+            <em>Elevation data from your Strava GPX file (17 km route).</em>
+        </div>
+
+
+        <!-- ======================== KEY REMINDERS ======================== -->
+        <div class="section-title" id="reminders">🧠 Key Reminders</div>
+
+        <div class="reminders">
+            <div class="reminder-item">
+                <div class="reminder-icon">🦶</div>
+                <div>
+                    <div class="rem-title">Pacing</div>
+                    <div class="rem-body">The #1 mistake on Akiki is starting too fast. 905m of climbing comes after the
+                        easy descent to Eddet River — save your legs.</div>
+                </div>
+            </div>
+            <div class="reminder-item">
+                <div class="reminder-icon">💧</div>
+                <div>
+                    <div class="rem-title">Hydration</div>
+                    <div class="rem-body">Small sips every 15–20 minutes. At altitude you lose moisture through
+                        breathing faster than you feel thirst.</div>
+                </div>
+            </div>
+            <div class="reminder-item">
+                <div class="reminder-icon">🧥</div>
+                <div>
+                    <div class="rem-title">Cold Management</div>
+                    <div class="rem-body">Change into dry base layers immediately at both camps. Damp clothing against
+                        your skin overnight at altitude is how people end up hypothermic. Never sleep in what you hiked
+                        in.</div>
+                </div>
+            </div>
+            <div class="reminder-item">
+                <div class="reminder-icon">🔋</div>
+                <div>
+                    <div class="rem-title">Camera Batteries</div>
+                    <div class="rem-body">Cold kills batteries 2–3x faster than normal. Sleep with them. Swap a warm
+                        battery in right before shooting sunrise.</div>
+                </div>
+            </div>
+            <div class="reminder-item">
+                <div class="reminder-icon">🔦</div>
+                <div>
+                    <div class="rem-title">Headlamp</div>
+                    <div class="rem-body">Mandatory for the pre-dawn summit assault. Test the night before. Spare
+                        batteries in jacket pocket.</div>
+                </div>
+            </div>
+            <div class="reminder-item">
+                <div class="reminder-icon">🚁</div>
+                <div>
+                    <div class="rem-title">Drone</div>
+                    <div class="rem-body">Only fly with DENR/guide confirmation. Best windows: summit afternoon or
+                        pre-dawn sunrise. Check wind before launching — gusts at the summit can be severe.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            Elevation data sourced from Strava GPX (17 km). All clothing and camera notes tailored to March conditions
+            at Mt. Pulag with Sony a7C2 + 28-200mm.<br>
+            Last updated: February 23, 2026
+        </div>
+
+    </div>
+</body>
+
+</html>
